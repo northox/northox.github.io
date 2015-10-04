@@ -10,8 +10,8 @@ relative_permalinks: true
 # Setup
 timezone:            America/New_York
 locale:              en_US
-name:		     'bored of offensive'
-title:               'bored of offensive'
+name:		     'bored with offensive'
+title:               'bored with offensive'
 description:         'description'
 url:                 danny.mantor.org
 rss:                 feed.xml
@@ -32,7 +32,7 @@ author:
 
 # Server
 destination:      	 ./_site
-exclude:          	 [".editorconfig", ".gitignore", "bower.json", "composer.json", "CONTRIBUTING.md", "CNAME", "LICENSE", "Gruntfile.js", "package.json", "node_modules", "README.md", "sass", "haml"]
+exclude:          	 [".gitignore", "CNAME", "LICENSE.md", "README.md"]
 port:             	 9001
 
 sass:
