@@ -14,7 +14,7 @@ name:		     'bored of offensive'
 title:               'bored of offensive'
 description:         'description'
 url:                 danny.mantor.org
-rss:                 rssfeedurl
+rss:                 feed.xml
 baseurl:             '/'
 baseurl_posts_img:   '/img/posts/'
 baseurl_featured_img: '/img/hero/'
@@ -28,12 +28,16 @@ author:
   url:               'https://mantor.org/~northox/'
   twitter:           dfullerto
   google_plus:       northox
-  linkedin:          username
+  linkedin:          dannyfullerton
 
 # Server
 destination:      	 ./_site
 exclude:          	 [".editorconfig", ".gitignore", "bower.json", "composer.json", "CONTRIBUTING.md", "CNAME", "LICENSE", "Gruntfile.js", "package.json", "node_modules", "README.md", "sass", "haml"]
 port:             	 9001
+
+sass:
+#  style: compressed
+  style: expanded
 
 defaults:
   -
