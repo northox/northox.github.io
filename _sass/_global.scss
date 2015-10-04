@@ -1,0 +1,51 @@
+//
+// Global
+// --------------------------------------------------
+
+html,
+body {
+  overflow-x: hidden;
+
+  @media (max-width: $screen-xs-max) {
+    padding-right: 0;
+  }
+}
+
+.brandLogo {
+  background-image: url(../img/logo-white.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  padding: 0;
+  text-indent: -100em;
+  overflow: hidden;
+}
+
+.brandLogo--small {
+  width: 44px;
+  height: 44px;
+}
+
+.brandLogo--black {
+  background-image: url(../img/logo-black.svg);
+}
+
+.textLogo--sidebar {
+  width: 100%;
+  height: auto;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.8;
+  color: white;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.textLogo--frontpage {
+  opacity: 0.9;
+  @media (max-width: $screen-xs-max) {
+    font-size: 44px;
+  }
+}

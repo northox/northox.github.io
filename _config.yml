@@ -1,0 +1,44 @@
+
+# Syntax highlighting
+markdown:            redcarpet
+highlighter:         pygments
+
+# Permalinks
+permalink:           /:title
+relative_permalinks: true
+
+# Setup
+timezone:            America/New_York
+locale:              en_US
+name:		     'bored of offensive'
+title:               'bored of offensive'
+description:         'description'
+url:                 danny.mantor.org
+rss:                 rssfeedurl
+baseurl:             '/'
+baseurl_posts_img:   '/img/posts/'
+baseurl_featured_img: '/img/hero/'
+baseurl_featured_thumbnail: '/img/thumbnail/'
+baseurl_javascripts: '/js/'
+icon:                /img/icon.png # [best 300px X 300px]
+disqus:              northox
+
+author:
+  name:              'Danny Fullerton'
+  url:               'https://mantor.org/~northox/'
+  twitter:           dfullerto
+  google_plus:       northox
+  linkedin:          username
+
+# Server
+destination:      	 ./_site
+exclude:          	 [".editorconfig", ".gitignore", "bower.json", "composer.json", "CONTRIBUTING.md", "CNAME", "LICENSE", "Gruntfile.js", "package.json", "node_modules", "README.md", "sass", "haml"]
+port:             	 9001
+
+defaults:
+  -
+    scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "default"
