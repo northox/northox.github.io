@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Enhancing Qubes OS with Rumpkernels."
+title:  "How offensive security cames to bore me."
 excerpt: ""
 categories: low-level
-tags: qubesos.rumpkernel
+tags: statusquo
 image:
-  feature: birds-porto.jpeg
+  feature: death-lisbon.jpeg
   topPosition: 0px
 bgContrast: dark
 bgGradientOpacity: darker
