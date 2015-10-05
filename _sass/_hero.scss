@@ -51,14 +51,14 @@
   .post-featuredImage {
     min-width: 100%;
     min-height: 19 * $leading;
-    width: 2000px;
-    height: auto;
-    position: fixed;
-    left: 50%;
-    -web-kit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    //position: fixed;
+    //left: 50%;
+    //-web-kit-transform: translateX(-50%);
+    //-moz-transform: translateX(-50%);
+    //-ms-transform: translateX(-50%);
+    //transform: translateX(-50%);
     opacity: 0;
     -webkit-transition-property: opacity, left, top, width;
     -webkit-transition-duration: 1s, .1s, .1s, .1s;
