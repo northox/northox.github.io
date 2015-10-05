@@ -1,5 +1,5 @@
 <nav role="navigation" class="sidebar sidebar--right">
-  <a href="{{site.baseurl}}" class="textLogo textLogo--white textLogo--sidebar">{{ site.name }}</a>
+  <div class="textLogo textLogo--sidebar">{{ site.name }}</div>
   <ul class="sidebar-recentPosts">
     <hr>
     {% for post in site.posts offset:0 limit:10 %}
