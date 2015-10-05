@@ -6,12 +6,15 @@
   position: fixed;
   top: 0;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   width: 80%; // temp solution
   height: 100%;
   color: $white;
   text-align: center;
   opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   visibility: hidden;
   background: transparent;
   -webkit-transition-delay: 0.5s;
@@ -24,6 +27,7 @@
 
 .fullscreenModal.active {
   opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   visibility: visible;
   -webkit-transition-delay: 0.5s;
   transition-delay: 0.5s;
@@ -39,16 +43,21 @@
   bottom: 30px;
 	right: 3%;
   opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   visibility: hidden;
+  -webkit-transition: all .5s cubic-bezier(0.23, 1, 0.32, 1);
   transition: all .5s cubic-bezier(0.23, 1, 0.32, 1);
   z-index: $zIndex-7--modal-toggle-group;
 }
 
 .modal-toggle-group.active {
   opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   visibility: visible;
 
   &.scaleIn {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
     transform: scale(1);
   }
 }
@@ -80,6 +89,7 @@
 
 .modal-toggle-wrapper.active {
   opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   -webkit-transform: rotate(360deg);
   -moz-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
@@ -92,6 +102,7 @@
   top: 0;
   z-index: $zIndex-6--modal-toggle-close;
   opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
   transition: opacity 0.3s;
@@ -151,6 +162,7 @@
 
 .modal-toggle-close-wrapper.active {
   opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   z-index: $zIndex-6--modal-toggle-close;
 
   .modal-toggle-close {
@@ -202,12 +214,14 @@
   background-color: $black;
 	-webkit-transform: scale(1);
 	opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   z-index: $zIndex-5--modal-toggle-bubbleshadow;
 }
 
 .modal-toggle-bubbleShadow.active {
 	-webkit-transform: scale(1.5);
 	opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	-webkit-transition: all 0.3s ease-out;
 }
 
@@ -235,9 +249,11 @@
     background-position: center center;
     background-size: contain;
     opacity: 0.8;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
 
     &:hover {
       opacity: 1;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     }
 
     @media (min-width: $screen-sm-max) and (max-width: $screen-lg-min) {

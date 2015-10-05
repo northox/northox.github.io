@@ -36,7 +36,9 @@ body {
   background-size: contain;
   background-position: center;
   opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   color: white;
+  font-size: 28px;
 
   &:hover {
     opacity: 1;
@@ -45,6 +47,7 @@ body {
 
 .textLogo--frontpage {
   opacity: 0.9;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
   @media (max-width: $screen-xs-max) {
     font-size: 44px;
   }

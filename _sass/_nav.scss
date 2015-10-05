@@ -216,7 +216,6 @@
   a {
     display: block;
     letter-spacing: 0.05rem;
-    font-weight: 700;
     line-height: 1.5;
     color: rgba($white,.8);
   }
@@ -250,6 +249,8 @@
     height: auto;
     position: relative;
     left: 50%;
+    webkit-transform: translateX(-50%);
+    ms-transform: translateX(-50%);
     transform: translateX(-50%);
   }
 }
@@ -298,6 +299,7 @@
 .menuWrapper ul li:hover {
   // display: block;
   opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
 
   > ul {
     display: block;

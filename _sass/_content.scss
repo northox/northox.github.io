@@ -114,6 +114,7 @@
     .postArticle-title {
       font-size: $font-XS;
       line-height: 1.5;
+      text-decoration: none;
     }
   }
 
@@ -122,10 +123,13 @@
     background: $white;
     width: 100%;
     padding-bottom: 2*$leading;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2);
     box-shadow: 0 1px 4px rgba(0,0,0,.2);
 
     &:hover {
+      -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      -webkit-box-shadow: 0 4px 10px 1px rgba(0,0,0,.2);
       box-shadow: 0 4px 10px 1px rgba(0,0,0,.2);
     }
   }
@@ -161,8 +165,17 @@
     -o-transition-duration: .5s, .1s, .1s, .1s;
     -o-transition-timing-function: cubic-bezier(.33,0,.2,1);
     -o-transition-delay: 0;
+    -webkit-transition-property: all, left, top, width;
+    -moz-transition-property: all, left, top, width;
+    -ms-transition-property: all, left, top, width;
     transition-property: all, left, top, width;
+    -webkit-transition-duration: .5s, .1s, .1s, .1s;
+    -moz-transition-duration: .5s, .1s, .1s, .1s;
+    -ms-transition-duration: .5s, .1s, .1s, .1s;
     transition-duration: .5s, .1s, .1s, .1s;
+    -webkit-transition-timing-function: cubic-bezier(.33,0,.2,1);
+    -moz-transition-timing-function: cubic-bezier(.33,0,.2,1);
+    -ms-transition-timing-function: cubic-bezier(.33,0,.2,1);
     transition-timing-function: cubic-bezier(.33,0,.2,1);
 
     @media (max-width: $screen-xs-max) {
@@ -208,7 +221,7 @@
 .section--footer {
   width: 100%;
   background: $white;
-  margin: $leading 0 2*$leading;
+  padding: $leading 0 2*$leading;
   position: relative;
   z-index: $zIndex-4--posts-wrapper;
   font-family: $title-secondary-font;
