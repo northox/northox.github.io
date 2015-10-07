@@ -25,7 +25,7 @@
 // Blocks
 .section--postsWrapper {
   width: 100%;
-  background: $frontpage-body-bg;
+  background: url('/img/patterns/concrete_wall_2.png');
   padding-top: 0;
   position: relative;
   clear: both;
@@ -76,7 +76,8 @@
     }
   }
 
-  li:nth-child(1).block {
+  li:nth-child(1).block,
+  li:nth-child(2).block {
     width: 100%;
 
     .postArticle-image {
@@ -92,8 +93,8 @@
     }
   }
 
-  li:nth-child(2).block,
-  li:nth-child(3).block {
+  li:nth-child(3).block,
+  li:nth-child(4).block {
     width: 50%;
 
     .postArticle-image {
