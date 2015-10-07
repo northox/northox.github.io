@@ -12,20 +12,20 @@ timezone:            America/New_York
 locale:              en_US
 name:		     'bored with offensive'
 title:               'bored with offensive'
-description:         'description'
+description:         ''
 url:                 danny.mantor.org
 rss:                 feed.xml
 baseurl:             '/'
-baseurl_posts_img:   '/img/posts/'
-baseurl_featured_img: '/img/hero/'
-baseurl_featured_thumbnail: '/img/thumbnail/'
-baseurl_javascripts: '/js/'
+baseurl_posts_img:   'img/posts/'
+baseurl_featured_img: 'img/hero/'
+baseurl_javascripts: 'js/'
 icon:                /img/icon.png # [best 300px X 300px]
 disqus:              northox
 
 author:
   name:              'Danny Fullerton'
   url:               'https://mantor.org/~northox/'
+  uri:               'https://mantor.org/~northox/'
   twitter:           dfullerto
   google_plus:       northox
   linkedin:          dannyfullerton
@@ -46,3 +46,5 @@ defaults:
       type: "posts"
     values:
       layout: "default"
+
+gems: [jekyll-feed]
