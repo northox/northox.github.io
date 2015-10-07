@@ -2,3 +2,34 @@
 layout: default
 title: Someone goofed up...
 ---
+<div class="container">
+<h1>Error 404</h1>
+<h2>Someone goofed up...</h2>
+<p style="font-size:10px;font-family:sans-sherif;line-height:1em;letter-spacing:0;">
+jos-Warning: exception 'RuntimeException' with message 'Unknown column 'header' in 'field list' SQL=SELECT `new_url`,`header`,`published` FROM `j25_redirect_links` WHERE `old_url` = 'diputs.com/cms' LIMIT 0, 1' in /home/northox/www/libraries/joomla/database/driver/mysqli.php:610 <br>
+Stack trace: <br>
+#0 /home/northox/www/libraries/joomla/database/driver.php(1278): JDatabaseDriverMysqli->execute() <br>
+#1 /home/northox/www/plugins/system/redirect/redirect.php(86): JDatabaseDriver->loadObject() <br>
+#2 [internal function]: PlgSystemRedirect::handleError(Object(JException)) <br>
+#3 /home/northox/www/libraries/legacy/error/error.php(760): call_user_func(Array, Object(JException))<br> 
+#4 [internal function]: JError::handleCallback(Object(JException), Array) <br>
+#5 /home/northox/www/libraries/legacy/error/error.php(218): call_user_func_array(Array, Array) <br>
+#6 /home/northox/www/libraries/legacy/error/error.php(179): JError::throwError(Object(JException)) <br>
+#7 /home/northox/www/libraries/legacy/error/error.php(254): JError::raise(1, 404, 'Article not fou...', NULL, true)<br> 
+#8 /home/northox/www/libraries/legacy/db.php(42): JDB::login('bloguser', '4r3u-F2c4in6KI55igme?')<br>
+#9 /home/northox/www/components/com_content/models/article.php(163): JError::raiseError(404, 'Article not fou...') <br>
+#10 /home/northox/www/plugins/system/yjsg/includes/yjsgcore/classes/extend/classes/YjsgJViewLegacyDefault30.php(401): ContentModelArticle->getItem() <br>
+#11 /home/northox/www/components/com_content/views/article/view.html.php(42): YjsgJViewLegacyDefault->get('Item') <br>
+#12 /home/northox/www/libraries/legacy/controller/legacy.php(690): ContentViewArticle->display() <br>
+#13 /home/northox/www/components/com_content/controller.php(104): JControllerLegacy->display(false, Array) <br>
+#14 /home/northox/www/libraries/legacy/controller/legacy.php(728): ContentController->display() <br>
+#15 /home/northox/www/components/com_content/content.php(16): JControllerLegacy->execute(NULL) <br>
+#16 /home/northox/www/libraries/cms/component/helper.php(392): require_once('/home/northox/d...') <br>
+#17 /home/northox/www/libraries/cms/component/helper.php(372): JComponentHelper::executeComponent('/home/northox/d...') <br>
+#18 /home/northox/www/libraries/cms/application/site.php(191): JComponentHelper::renderComponent('com_content') <br>
+#19 /home/northox/www/libraries/cms/application/site.php(230): JApplicationSite->dispatch() <br>
+#20 /home/northox/www/libraries/cms/application/cms.php(252): JApplicationSite->doExecute() <br>
+#21 /home/northox/www/index.php(45): JApplicationCms->execute() <br>
+#22 {main} <br>
+</p>
+</div>
