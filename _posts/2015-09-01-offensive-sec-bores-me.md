@@ -6,11 +6,13 @@ categories: low-level
 tags: statusquo
 image:
   feature: death-lisbon.jpeg
+  position: 'center center'
   topPosition: 0px
 bgContrast: dark
 bgGradientOpacity: darker
 syntaxHighlighter: no
 ---
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin tincidunt purus eu ultrices. Morbi non risus ex. Curabitur dapibus nisl quis ex volutpat, eget pretium dui vestibulum. Nam nec elit efficitur, pretium massa vitae, aliquet nisl. Etiam dignissim efficitur velit nec porttitor. Nunc nec mi vestibulum, bibendum quam in, blandit sapien. Sed vehicula suscipit tellus sit amet molestie. Morbi elementum risus justo, sed fermentum turpis mollis at. Quisque non nunc convallis, gravida dui id, dignissim metus. Sed volutpat venenatis mattis. Proin tempus non lectus auctor molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
 
 Proin urna lectus, ornare quis posuere nec, gravida et nulla. Nullam vitae nulla tellus. Suspendisse ac lacus vel nisl egestas eleifend. Nulla facilisi. Vestibulum varius mattis consequat. Morbi dapibus orci velit, a consequat ipsum bibendum at. Integer consectetur consequat neque a semper. Proin dictum, nisi nec facilisis pulvinar, magna libero vestibulum nulla, et molestie nisl nisl in erat. Vivamus vitae suscipit quam, eu finibus mi.

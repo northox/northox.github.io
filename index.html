@@ -28,11 +28,9 @@ title: Home
             <div class="postArticle-wrapper">
               <article class="postArticle postArticle--short">
                 <a href="{{ post.url }}">
-                {% if post.image.feature %}
-                    <div class="postArticle-image desaturate" style="background-image:url('{{ post.image.feature | prepend: site.baseurl_featured_img }}')"></div>
-                {% else %}
-                    <div class="postArticle-image" style="background-image:url('{{site.baseurl}}img/logo-black.svg')"></div>
-                {% endif %}
+                  <div class="postArticle-image desaturate" style="
+                    background-image:url('{{ post.image.feature | prepend: site.baseurl_featured_img }}');
+                    background-position: {{ post.image.position | default: 'center center' }};"></div>
                 </a>
                 <a class="postArticle-title" href="{{ post.url }}">{{ post.title }}</a>
               </article>
