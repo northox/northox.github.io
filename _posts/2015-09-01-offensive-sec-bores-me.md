@@ -2,8 +2,11 @@
 layout: post
 title:  "How offensive security cames to bore me."
 excerpt: ""
-categories: low-level
-tags: statusquo
+categories: high-level
+tags: 
+- statusquo
+- defense
+- balance
 image:
   feature: death-lisbon.jpeg
   position: 'center center'

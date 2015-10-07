@@ -4,7 +4,7 @@ layout: default
 <article class="postWrapper">
   <section class="section--first is-darkBackgrounded u-table">
     <div class="post-featuredImage" style="
-      background-image:url('{{ page.image.feature | prepend: site.baseurl_featured_img }}');
+      background-image:url('/{{ page.image.feature | prepend: site.baseurl_featured_img }}');
       background-position:{{ page.image.position | default: 'center center' }}">
     </div>
     <div class="section-gradient
@@ -55,11 +55,12 @@ layout: default
     {% if page.previous.url %}
       <section class="section--prePost is-darkBackgrounded u-table">
         <div class="section-backgroundImage section-backgroundImage--previousPage">
-          <img class="post-featuredImage"
           {% if page.previous.image.feature %}
-            src="{{ page.previous.image.feature | prepend: site.baseurl_featured_img }}"
+          <div class="post-featuredImage" style="
+            background-image:url('/{{ page.previous.image.feature | prepend: site.baseurl_featured_img }}');
+            background-position:{{ page.previous.image.position | default: 'center center' }};">
+          </div>
           {% endif %}
-          style="top:0" alt="">
         </div>
         <div class="section-gradient
         {% if page.previous.bgGradientOpacity == "darker" %}

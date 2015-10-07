@@ -3,7 +3,11 @@ layout: post
 title:  "Enhancing Qubes OS with Rumpkernels."
 excerpt: ""
 categories: low-level
-tags: qubesos.rumpkernel
+tags: 
+- qubesos
+- rumpkernel
+- firewall
+- immutable
 image:
   feature: birds-porto.jpeg
   position: 'top left'
