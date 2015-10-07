@@ -1,0 +1,32 @@
+GEM
+  specs:
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
+    ffi (1.9.10)
+    hitimes (1.2.2)
+    jekyll-feed (0.3.1)
+    jekyll-watch (1.2.1)
+      listen (~> 2.7)
+    json (1.8.3)
+    listen (2.10.0)
+      celluloid (~> 0.16.0)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+    rb-fsevent (0.9.5)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
+    redcarpet (3.3.2)
+    timers (4.0.1)
+      hitimes
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  jekyll-feed
+  jekyll-watch
+  json
+  redcarpet
+
+BUNDLED WITH
+   1.10.6
