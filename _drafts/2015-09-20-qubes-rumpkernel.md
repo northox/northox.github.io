@@ -18,6 +18,7 @@ syntaxHighlighter: "no"
 published: true
 ---
 
+
 ---
 layout: post
 title:  "Enhancing Qubes OS with Rumpkernels."
@@ -42,35 +43,16 @@ you're comfortable with its basic architecture.
 
 Hint: no, it's not simply a new distribution of Linux but a new desktop Operating Systems architecture breaking the status quo.
 
-#### Monolitic kernel
-Mostly all Operating Systems in use today rely on Monolitic kernels. Invisible
-Things Lab researches led them to have a profound disgust for traditional OS architecture which heavily rely on Security by Correctness. This means the attack surface of their Trusted Computing Base is very large and they mostly depend on code to be free of vulnerabilities for their Security Model to hold up.
+#### QuesOS' serviceVMs
+To further extend the compartmentalization capabilities of QubesOS, for a long time More precisely, I've begin asking myself how to reduce the boot time and cpu/memory footprint of the serviceVMs, e.g. slip GPG domain, firewallVM, proxyVMs, trusted converters.
 
-Everything runs as the same level, e.g. your MP3 player can read your financial statement done in excel - it has the same privilege than you.
+Currently, those are based on the default template which is a complete Fedora based linux OS. In average, I found my firewallVM to use at least 300MB of memory on its own while work-pgp use 200MB. 
 
-Mostly every flaw is a Game Over case; Ethernet driver, WIFI driver, graphical driver, the browser, the MP3 player or any application using streams of complex data that needs to be parse - mostly everything.
+Quite frankly, I haven't really tried to optimize much as I'm pretty confident the optimization couldn't bring me close to my objectives which is below 100MB of memory usage and a boot time which is barely noticable - less than 1s.
 
-#### QubesOS' pseudo micro-kernel architecture
-wanted to create a new OS with very limited resources 2 to 3 dev in a year.
-something that would be usable.
-
-The most important problems with micro-kernel is that everything needs to be rewrite and performance.
-
-Strong Isolation: XEN
-slim, secure interfaces (the most difficult part): libvchan + slim comm
-
-It's actually pretty interesting to see Microsoft integrating some of those  _Compartmentalization_ concepts thought ?????? and partnership with Bromium.
-
-To further extend the compartmentalization capabilities of QubesOS, for a long time I've begin asking myself what would be the best way to reduce the boot time and cpu/memory footprint of service/dedicated VMs, e.g., slip gpg, firewallVM, proxyVMs, trusted converters.
-
-untrusted -> convert to raw (easy to validate format) -> send to trustedVM which validate the format -> convert back to a compressed format -> send it back.
-
-##### The impacts
-For serviceVM, cpu/memory load can quickly become a problem. In average, I found my firewallVM to use ~350MB of memory on its own. I haven't really tried to optimize as I'm pretty sure the optimization can bring me close to my objectives.
-
-Heavy on memory -> might use deduplication but this has it's own security caveats
+**Heavy on memory -> might use deduplication but this has it's own security caveats
 Heavy on CPU usage -> lots of unnecessary processes: cron, scheduler, ... (context switching)
-Heavy on disk space -> fixed by templateVM architecture
+Heavy on disk space -> fixed by templateVM architecture**
 
 ### Enters the AnyKernel
 Library OS
@@ -84,9 +66,20 @@ Anti and friends . What they accomplish is simply awesome.
 pick and choose NetBSD's drivers
 
 #### What's the value for Qubes OS?
-I foresee two main benefit of integrating anykernels to the QubesOS architecture:
+I foresee two main benefits:
 
-1. Possibility for more segregation
+1. Encourage even more segregation
+Obviously, there's the question of resources:
+- cpu load
+- memory usage
+- disk space.. templateVM
+
+But the real value is for the User Experience (encourage more segre):
+- boot time
+- reduce the need to manage
+resource (shutdown some VMs to gain mem)
+drive proper behaviour to use convertVM - serviceVM
+
 load: CPU / memory
 hard drive = minimal cuz templateVM
 is to lower the boot time and cpu/memory footprint to enable more serviceVM (big sec-gain)
@@ -94,8 +87,6 @@ Better user experience... enabling more serviceVM convertVM
 
 One of the best thing about Qubes OS its easy to strongly isolate operations while providing powerful integration tools. convert untrusted PDF to a trusted format.
 music
-
-untrusted -> convert to raw (easy to validate format) -> send to trustedVM which validate the format -> convert back to a compressed format -> send it back.
 
 To further extend the compartmentalization capabilities of QubesOS, for a long time I've begin asking myself what would be the best way to reduce the boot time and cpu/memory footprint of service/dedicated VMs, e.g., slip gpg, firewallVM, proxyVMs, trusted converters.
 
@@ -115,8 +106,10 @@ the option to make it immutable but it's not quite clear whether this configurat
 #### How to build
 
 ### What's next?
+PoC trusted converter
+untrusted -> convert to raw (easy to validate format) -> send to trustedVM which validate the format -> convert back to a compressed format -> send it back.
+in less than a second
 
---------
 From a security perspective, the rumpkernel firewallVM increase the difficulties of compromising Qubes' AppVMs through a linux network stack zero-day. This threat is known and has been describe a long time ago (see ####). The idea is that since all the VMs share the same TCP/IP stack codebase, a single zero-day could compromise the isolation of all AppVMs by simply hopping from one VM to another using the same flaw. Obviously, this doesn't affect dom0 or AppVM with no network interface directly and to be fair, the attack itself is unlikely as the network stack are pretty stable and no flaws have been found since a long time, but still. With the rumpkernel FirewallVM, the attacker would need two zero-day (i.e. one in Linux and one in NetBSD) thus, an order of magnitude less likely/more difficult.
 
 fs-util to manage conf
