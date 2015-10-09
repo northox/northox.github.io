@@ -165,7 +165,7 @@
     letter-spacing: 0.04rem;
     color: $gray-light;
     text-transform: none;
-    
+
     @media (max-width: $screen-xs-max) {
       width: 100%;
       font-size: 20px;
@@ -200,7 +200,7 @@
   margin: 0;
   padding: 0 0 0 10px;
   font-family: $title-secondary-font;
-  font-weight: 700;
+  font-weight: 300;
   font-size: $font-XS;
   text-transform: uppercase;
   letter-spacing: 2px;
