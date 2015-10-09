@@ -1,15 +1,16 @@
 ---
 layout: about
+title: About
 ---
 #### About me
 
-I live in the French part of north America - Québec, Canada. More precisely, Montréal. I'm Cofounder and Defensive Security Researcher at [Mantor Organization](https://mantor.org) and work as an Enterprise Security Architect for the biggest railroad in Canada.
+I live in the French part of North America - Québec, Canada. More precisely, Montréal. I'm Cofounder and Defensive Security Researcher at [Mantor Organization](https://mantor.org) and work as an Enterprise Security Architect for the biggest railroad in Canada.
 
 Oh, as you might have seen, I'm also a hobbyist photographer... on a budget. [See below](#pics).
 
 #### Field of expertise
 
-My work and interest touch both extreme of the security field:
+My work and interest touch both extremes of the security field:
 
 *   Deep technical problems about how security is built into computers (Root of Trust, Security by Compartmentalization, Trusted Computing, Operating System architecture) and on the other end;
 *   How sound security is brought up and managed efficiently in an organization. This has to do with economics, processes and culture.
