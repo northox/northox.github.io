@@ -1,4 +1,2 @@
-gem 'json'
-gem 'jekyll-feed'
-gem 'jekyll-watch'
-gem 'redcarpet'
+source 'https://rubygems.org'
+gem 'github-pages'
