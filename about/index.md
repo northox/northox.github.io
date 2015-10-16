@@ -23,9 +23,9 @@ I use a lot of Open Source software/hardware and give back by getting involved i
 
 The pictures in this blog are scenes from my trips and my neighborhood. I'm still using a simple smartphone.
 
-Why do I put some total random pictures in a security blog? Simply because I feel like it. This is one of the very few activities I enjoy aside computer stuff and like using my shots as part of my work.
+Why do I put some total random pictures in a security blog? Simply because I feel like it. This is one of the very few activities I enjoy aside computer stuff and using my shots as part of my work makes it feel a little more personal and human.
 
-I've developed this new interest while being inspired by an [awesome developer](https://github.com/jmettraux) and friend on the other side of the globe (Japan) named [John Mettraux](https://www.flickr.com/photos/jmettraux/) and a former IBM co-worker and friend, [Denis Dumouchel](http://dumouchel.ca/photos/).
+I've developed this new interest while being inspired by an [seasonned developer](https://github.com/jmettraux) and friend on the other side of the globe (Japan) named [John Mettraux](https://www.flickr.com/photos/jmettraux/) and a former IBM co-worker and friend, [Denis Dumouchel](http://dumouchel.ca/photos/).
 
 If you're interested, for the moment you can find most of my pictures on [Instagram](https://instagram.com/northox/).
 
