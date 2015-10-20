@@ -25,7 +25,7 @@ The pictures in this blog are scenes from my trips and my neighborhood. I'm stil
 
 Why do I put some total random pictures in a security blog? Simply because I feel like it. This is one of the very few activities I enjoy aside computer stuff and using my shots as part of my work makes it feel a little more personal and human.
 
-I've developed this new interest while being inspired by an [seasonned developer](https://github.com/jmettraux) and friend on the other side of the globe (Japan) named [John Mettraux](https://www.flickr.com/photos/jmettraux/) and a former IBM co-worker and friend, [Denis Dumouchel](http://dumouchel.ca/photos/).
+I've developed this new interest while being inspired by a [seasoned developer](https://github.com/jmettraux) and friend on the other side of the globe (Japan) named [John Mettraux](https://www.flickr.com/photos/jmettraux/) and a former IBM co-worker and friend, [Denis Dumouchel](http://dumouchel.ca/photos/).
 
 If you're interested, for the moment you can find most of my pictures on [Instagram](https://instagram.com/northox/).
 
