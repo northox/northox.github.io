@@ -1,0 +1,91 @@
+rump                     Rump kernel base
+rumpdev                  Rump kernel device faction
+rumpnet                  Rump kernel networking faction
+rumpvfs                  Rump kernel file system faction
+rumpdev_audio            Audio support (incl. /dev/audio and /dev/mixer)
+rumpdev_bpf              Berkeley Packet Filter
+rumpdev_cgd              Cryptographic disk driver (block device crypto layer)
+rumpdev_disk             Disk-like device support (used e.g. by file systems)
+rumpdev_dm               Device-mapper driver (for LVM)
+rumpdev_drvctl           /dev/drvctl driver
+rumpdev_fss              File system snapshot device
+rumpdev_md               Memory disk device driver
+rumpdev_netsmb           SMB protocol communicator (required by SMB/CIFS)
+rumpdev_pad              Pseudo Audio Device
+rumpdev_pud              Userspace character and block driver framework
+rumpdev_putter           User/kernel protocol transporter (for puffs and pud)
+rumpdev_raidframe        RAIDframe (software RAID)
+rumpdev_rnd              /dev/{,u}random
+rumpdev_scsipi           SCSI & ATAPI mid-layer
+rumpdev_sysmon           System monitoring and power management
+rumpdev_vnd              Present a regular file as a block device (/dev/vnd)
+rumpdev_wscons           Workstation console support
+rumpdev_opencrypto       OpenCrypto, incl. /dev/crypto
+rumpdev_ubt              USB BlueTooth driver
+rumpdev_ucom             USB serial driver
+rumpdev_ugenhc           USB host controller using /dev/ugen
+rumpdev_ulpt             USB printer driver
+rumpdev_umass            USB mass storage driver
+rumpdev_usb              USB support
+rumpdev_pci              PCI bus support
+rumpdev_pci_if_iwn       Intel wireless device driver
+rumpdev_pci_if_pcn       PCnet Ethernet device driver
+rumpdev_pci_if_wm        Intel GigE device driver
+rumpdev_pci_usbhc        PCI USB host controller drivers
+rumpdev_pci_virtio       VirtIO bus support
+rumpdev_virtio_if_vioif  VirtIO network interface driver
+rumpdev_virtio_ld        VirtIO block device driver
+rumpdev_virtio_viornd    VirtIO entropy driver
+rumpdev_audio_ac97       AC97 audio driver
+rumpdev_pci_auich        AC97 Intel Audio driver
+rumpdev_pci_eap          Ensoniq AudioPCI driver
+rumpdev_pci_hdaudio      HDaudio PCI attachment
+rumpdev_hdaudio_hdafg    High Definition Audio (hdaudio) driver
+rumpdev_miiphy           MII and PHY drivers (for networking)
+rumpfs_cd9660            ISO9660
+rumpfs_efs               SGI EFS
+rumpfs_ext2fs            Linux Ext2
+rumpfs_fdesc             /dev/fd pseudo file system
+rumpfs_ffs               Berkeley Fast File System
+rumpfs_hfs               Apple HFS+
+rumpfs_kernfs            /kern fictional file system
+rumpfs_lfs               Log-structured File System
+rumpfs_mfs               Memory File System (in-memory FFS)
+rumpfs_msdos             FAT
+rumpfs_nfs               NFS client
+rumpfs_nilfs             NILFS
+rumpfs_ntfs              NTFS
+rumpfs_null              Loopback file system
+rumpfs_ptyfs             /dev/pts pseudo file system
+rumpfs_smbfs             SMB/CIFS
+rumpfs_syspuffs          puffs in-kernel driver
+rumpfs_sysvbfs           System V boot file system
+rumpfs_tmpfs             tmpfs (efficient in-memory file system)
+rumpfs_udf               UDF
+rumpfs_umap              uid/gid mapping layer
+rumpfs_union             union file system (fan-out layer)
+rumpfs_v7fs              Unix 7th edition file system
+rumpfs_nfsserver         NFS server
+rumpvfs_fifofs           File system FIFO support
+rumpvfs_layerfs          Layer file system support (used by other drivers)
+rumpvfs_aio              POSIX asynchronous I/O system calls
+rumpkern_crypto          Cryptographic routines
+rumpkern_sysproxy        Remote system call support (rump kernel as a server)
+rumpkern_tty             TTY/PTY support
+rumpkern_z               Data compression
+rumpkern_sljit           Stackless JIT compiler
+rumpnet_agr              Link aggregation pseudo interface (L2 trunking)
+rumpnet_bridge           Bridging for IEEE 802
+rumpnet_net              Network interface and routing support
+rumpnet_net80211         IEEE 802.11 (wireless LAN) support
+rumpnet_netbt            BlueTooth (PF_BLUETOOTH)
+rumpnet_netinet          IPv4 incl. TCP and UDP (PF_INET)
+rumpnet_netinet6         IPv6 incl. TCP and UDP (PF_INET6)
+rumpnet_netmpls          Multiprotocol Label Switching (PF_MPLS)
+rumpnet_npf              NPF packet filter
+rumpnet_local            Local domain sockets (PF_LOCAL/PF_UNIX)
+rumpnet_shmif            Shared memory bus network interface
+rumpnet_tap              /dev/tap virtual Ethernet interface
+rumpnet_bpfjit           JIT compiler for Berkeley Packet Filter
+rumpnet_virtif           Network interface which uses hypercalls for I/O
+rumpnet_sockin           PF_INET/PF_INET6 via hypercalls

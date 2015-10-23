@@ -34,7 +34,7 @@ split GPG             |  ≥ 200 |   ~8.5s
 trusted PDF converter |  ~ 280 |     TBC
 ```
 
-Those numbers aren't awful but for sure, it could be a lot better. Nonetheless, there's huge advantage in using this approach. As ITL summarize it: everything just works. Being able to leverage what's already out there certainly have something to do with the success of such an _ambitious project_, e.g. Firefox, MS Word, network/graphical drivers. Building an OS which requires each and every components to be rewritten (like a micro-kernel) is sort of a show stopper if your goal is to build something actually useful - not pure research.
+Those numbers aren't awful but for sure, it could be a lot better. Nonetheless, there's huge advantage in using this approach. As ITL summarize it: everything just works. Being able to leverage what's already out there certainly has something to do with the success of such an _ambitious project_, e.g. Firefox, MS Word, network/graphical drivers. Building an OS which requires each and every components to be rewritten (like a micro-kernel) is sort of a show stopper if your goal is to build something actually useful - not pure research.
 
 <blockquote class="largeQuote">
 What if there was a middle ground between running a fat-OS and having to rewrite everything?
@@ -51,7 +51,7 @@ Some implementation are meant to run single language such as Erlang, Haskell or 
 #### Rumprun unikernel
 The [Rump kernel](http://rumpkernel.org) project uses the second approach with their [Rumprun](http://repo.rumpkernel.org/rumprun) unikernel. It allows the use of unmodified [NetBSD's](https://netbsd.org) components of your choice and unmodified / real world software (POSIX). The project started as an implementation of the [anykernel](http://wiki.rumpkernel.org/Repo#the-big-picture) concept to provide [Rump kernels](https://en.wikipedia.org/wiki/Rump_kernel) but end up also creating a unikernel. The story of how they got there is [truly fascinating](https://blog.xenproject.org/2015/08/06/on-rump-kernels-and-the-rumprun-unikernel/).
 
-Very briefly, the goal of the anykernel is to provide the possibility to run unmodified kernel component almost anywhere in an environment called rump kernel. In other words, it is an architecture-agnostic approach to drivers. Rump kernels can run in kernel/user space of POSIX operating systems (e.g. Linux, BSD, Windows via Cygwin). This is huge! At that point, to get to a unikernel they needed just a few more things; low-level code as described below and to put libc on top for the application to interact with:
+Very briefly, the goal of the anykernel is to provide the possibility to run unmodified [kernel components](/misc/rump-make_describe-2015-10.txt) almost anywhere in an environment called a rump kernel - an architecture-agnostic approach to drivers. Rump kernels can run in kernel/user space of POSIX operating systems (e.g. Linux, BSD, Windows via Cygwin). This is huge! At that point, to get to a unikernel they needed just a few more things; low-level code as described below and to put libc on top for the application to interact with:
 
 > I started looking at the Xen Mini-OS to figure out how to bootstrap a domU, and quickly realized that Mini-OS implements almost everything the rump kernel hypercall layer requires: a build infra, cooperative thread scheduling, physical memory allocation, simple interfaces to I/O devices such as block/net, and so forth.
 >- Source [[Xen-users] Antti Kantee ](http://lists.xenproject.org/archives/html/xen-users/2013-08/msg00152.html)
@@ -88,19 +88,20 @@ Unikernels can enhance Qubes in many ways. They're a perfect fit for domains whi
 
 ##### Increase security
 
-1. The first two benefits could lead us to enforce the usage of [trusted converters](http://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html), e.g. from untrusted to trusted domains;
+1. Has the potential to enable more compartmentalization;
+  - The first two benefits could lead us to enforce the usage of [trusted converters](http://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html), e.g. from untrusted to trusted domains;
+  - Encourage more network segmentation: run more _lean and slim_ FirewallVM, ProxyVM, TorVM, NetVM, etc.
+    - **Bonus point!** We can mitigate an hypothetic chained TCP/IP stack exploit [#806](https://github.com/QubesOS/qubes-issues/issues/806) by making use of a different TCP/IP stack codebase (BSD). This reduces the chance for a single zero-day to cascade from the NetVM to FirewallVM to any AppVM (inbound) and from an untrustedVM to the FirewallVM and back to any AppVM (local). More detail in the next post.
+  - Encourage more device domains;
+     - Hardware can be dedicated via PCI passthrough and handled by a fit-for-purpose unikernel (and safely isolated with IOMMU). See this [list of rump components](/misc/rump-make_describe-2015-10.txt), e.g. BlueTooth, audio, SMB, USB.
 
-2. The approach values minimalism over -featurism-. This mainly translate in making exploitation harder and probably less management;
+2. The approach values minimalism over -featurism-. This mainly translate in making exploitation harder (but really nothing to get too excited about) and probably less management;
   - Not much to play with, e.g. there's no shell;
   - Not much to gain persistence with, e.g. mostly read-only.
 
-3. It has the potential to provide even more network operations opportunities: lean and slim FirewallVM, ProxyVM and NetVM.
-  - **Bonus point!** We can mitigate an hypothetic chained TCP/IP stack exploit [#806](https://github.com/QubesOS/qubes-issues/issues/806) by making use of a different TCP/IP stack codebase (BSD). This would reduce the chance for a single zero-day to cascade from the NetVM to FirewallVM to any AppVM (inbound) and from an unpriviledgeVM to the FirewallVM and back to any AppVM (local). More detail in the next post.
-  - Hardware can be directly accessed via PCI passthrough (while being safely isolated using IOMMU/VT-d);
-
 #### Impacts on QubesOS
 
-Currently, to boot a Rumprun unikernel image we need to execute a few *special* steps: start paused, inject some configurations in XenStore, unpause. Fortunately, this part is managed by a very simple [shell script](https://github.com/rumpkernel/rumprun/blob/master/app-tools/rumprun) that can easily be audited and integrated in Qubes' toolstack. Even better, there's some discussion toremove it altogether and only rely on the hypervisor’s toolstack instead - like any other VM.
+Currently, to boot a Rumprun unikernel image we need to execute a few *special* steps: start paused, inject some config in XenStore, unpause. Fortunately, this part is managed by a very simple [shell script](https://github.com/rumpkernel/rumprun/blob/master/app-tools/rumprun) that can easily be audited and integrated to Qubes' toolstack. Even better, there's some discussion to remove it altogether and only rely on the hypervisor’s toolstack instead - like any other VM.
 
 The biggest impact is on the build side which would require the integration of the Rumprun repository which includes NetBSD's source (an additional 350MB) and implies trusting them for whatever domains we're building. This doesn't sound unrealistic.
 
@@ -110,10 +111,11 @@ The biggest impact is on the build side which would require the integration of t
 
 #### What's next?
 
-- Get some constructive feedback and answer a few questions such as:
-  - Is this viable in practice?
-  - What exactly would need to be modified on Qubes' side and what's the effort?;
-- I'll post the instructions and code for the *TCP/IP stack mitigation* case which will shed some light over the practicality of Rumprun and its security value;
-- If everything goes well, at some point we should get a [trusted converter](http://theinvisiblethings.blogspot.ca/2013/02/converting-untrusted-pdfs-into-trusted.html) for pictures which would be useful to explore the user experience value and possibly spawn new ideas.
+Get some constructive feedback and answers for a few questions:
+
+- What exactly would need to be modified on Qubes' side, what's the effort and what's the best course of actions?
+- Is this viable in practice?
+  - I'll post the instructions and code for the *TCP/IP stack mitigation* case which will shed some light over the practicality of Rumprun and its security value;
+  - If everything goes well, at some point I should be able to get a [trusted converter](http://theinvisiblethings.blogspot.ca/2013/02/converting-untrusted-pdfs-into-trusted.html) for PDFs or pictures to explore the user experience value and possibly spawn new ideas.
 
 Interested in contributing? Drop me a line!
