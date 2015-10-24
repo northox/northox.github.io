@@ -88,16 +88,15 @@ Unikernels can enhance Qubes in many ways. They're a perfect fit for domains whi
 
 ##### Increase security
 
-1. Has the potential to enable more compartmentalization;
+1. Potential to leverage more compartmentalization;
   - The first two benefits could lead us to enforce the usage of [trusted converters](http://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html), e.g. from untrusted to trusted domains;
   - Encourage more network segmentation: run more _lean and slim_ FirewallVM, ProxyVM, TorVM, NetVM, etc.
-    - **Bonus point!** We can mitigate an hypothetic chained TCP/IP stack exploit [#806](https://github.com/QubesOS/qubes-issues/issues/806) by making use of a different TCP/IP stack codebase (BSD). This reduces the chance for a single zero-day to cascade from the NetVM to FirewallVM to any AppVM (inbound) and from an untrustedVM to the FirewallVM and back to any AppVM (local). More detail in the next post.
+     - **Bonus point!** We can mitigate an hypothetic chained TCP/IP stack exploit ([#806](https://github.com/QubesOS/qubes-issues/issues/806)) by making use of a different TCP/IP stack codebase (BSD). This reduces the chance for a single zero-day to cascade from the NetVM to FirewallVM to any AppVM (inbound) and from an untrustedVM to the FirewallVM and back to any AppVM (local). More detail in the next post.
   - Encourage more device domains;
      - Hardware can be dedicated via PCI passthrough and handled by a fit-for-purpose unikernel (and safely isolated with IOMMU). See this [list of rump components](/misc/rump-make_describe-2015-10.txt), e.g. BlueTooth, audio, SMB, USB.
 
-2. The approach values minimalism over -featurism-. This mainly translate in making exploitation harder (but really nothing to get too excited about) and probably less management;
-  - Not much to play with, e.g. there's no shell;
-  - Not much to gain persistence with, e.g. mostly read-only.
+2. The approach values minimalism over -featurism-.
+  - This mainly translate in making exploitation harder (but really nothing to get too excited about) and probably less management: Not much to play with, e.g. there's no shell; Not much to gain persistence with, e.g. mostly read-only.
 
 #### Impacts on QubesOS
 
