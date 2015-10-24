@@ -4,7 +4,7 @@ title: About
 ---
 #### About me
 
-I live in the French part of North America - Québec, Canada. More precisely, Montréal. I'm Cofounder and Defensive Security Researcher at [Mantor Organization](https://mantor.org) and work as an Enterprise Security Architect for the biggest railroad in Canada.
+I live in the French part of North America - Montréal, Québec, Canada. I'm Cofounder and Defensive Security Researcher at [Mantor Organization](https://mantor.org) and work full time as an Enterprise Security Architect for one of the biggest railroad in North America.
 
 Oh, as you might have seen, I'm also a hobbyist photographer... on a budget. [See below](#pics).
 
