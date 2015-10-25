@@ -4,7 +4,7 @@ title: About
 ---
 #### About me
 
-I live in the French part of North America - Montréal, Québec, Canada. I'm Cofounder and Defensive Security Researcher at [Mantor Organization](https://mantor.org) and work full time as an Enterprise Security Architect for one of the biggest railroad in North America.
+My name is Danny Fullerton. I live in the French part of North America (Montréal, Québec, Canada) and a proud [Scottish descendant](https://www.houseofnames.com/fullerton-family-crest). I'm Cofounder and Defensive Security Researcher at [Mantor Organization](https://mantor.org) and work full time as an Enterprise Security Architect for one of the biggest railroad in North America.
 
 Oh, as you might have seen, I'm also a hobbyist photographer... on a budget. [See below](#pics).
 
@@ -27,9 +27,9 @@ Why do I put some total random pictures in a security blog? Simply because I fee
 
 I've developed this new interest while being inspired by a [seasoned developer](https://github.com/jmettraux) and friend on the other side of the globe (Japan) named [John Mettraux](https://www.flickr.com/photos/jmettraux/) and a former IBM co-worker and friend, [Denis Dumouchel](http://dumouchel.ca/photos/).
 
-If you're interested, for the moment you can find most of my pictures on [Instagram](https://instagram.com/northox/).
+If you're interested, you can find most of my pictures on [flickr](https://www.flickr.com/photos/137239922@N05/).
 
-#### Contact
+<h4 id="contact">Contact</h4>
 
 You can reach me by email at this address: **danny at mantor dot org**. My email PGP key fingerprint is as follow and can be validated with my master key as described [below](#validid).
 
