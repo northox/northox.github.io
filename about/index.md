@@ -2,9 +2,6 @@
 layout: about
 title: About
 ---
-<style type="text/css">
-  @import url("/css/hint.min.css");
-</style>
 
 #### About me
 
