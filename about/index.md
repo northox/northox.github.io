@@ -2,9 +2,13 @@
 layout: about
 title: About
 ---
+<style type="text/css">
+  @import url("/css/hint.min.css");
+</style>
+
 #### About me
 
-My name is Danny [Fullerton](https://www.houseofnames.com/fullerton-family-crest). I live in the French part of North America (Montréal, Québec, Canada). I'm Cofounder and Defensive Security Researcher at [Mantor Organization](https://mantor.org) and work full time as an Enterprise Security Architect for one of the biggest railroad in North America.
+My name is Danny [Fullerton](https://www.houseofnames.com/fullerton-family-crest). I live in the French part of North America (Montréal, Québec, Canada). I'm Cofounder and Defensive Security Researcher at [Mantor Organization](https://mantor.org) and work full time as an <u class="hint--bottom" data-hint="Whatever that means...">Enterprise Security Architect</u> for one of the biggest railroad in North America.
 
 Oh, as you might have seen, I'm also a hobbyist photographer... on a budget. [See below](#pics).
 
