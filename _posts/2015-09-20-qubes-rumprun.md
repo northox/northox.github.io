@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Enhancing Qubes OS with Rumprun unikernels.
+title: Enhancing Qubes with Rumprun unikernels.
 excerpt: ""
 categories: "low-level"
 tags:
@@ -18,25 +18,12 @@ syntaxHighlighter: no
 
 _This post is the first of a series and assumes you have some basic understanding of [Qubes](https://qubes-os.org)' reason being, structure and terminology._
 
-For some time, I've been asking myself how to enhance the compartmentalization capability of Qubes. Working with different security domains implemented as VMs running traditional Operating System with monolithic kernels comes at a price:
+For some time, I've been asking myself how to enhance Qubes. Working with different security domains implemented as VMs running traditional Operating System with monolithic kernels comes at a price. The user experience drawbacks of
 
-- The user experience drawbacks of managing resources contention caused by concurrent VMs, e.g. freeing some memory by stopping a VM to start another;
-- The wait for launching an application or executing a task from within a stopped VM and sometimes only to execute a specific task which takes a fraction of this time.
+- Managing memory-hungry concurrent VMs (&ge; 300MB), e.g. freeing some memory by stopping a VM to start another;
+- Waiting for a VM to boot (~8.5s) to launch an app and sometimes only to execute something which takes a fraction of this time.
 
-<small>
-Basic stats collected from Qubes v2. Let me know if your results differs greatly.
-</small>
-
-```
-                      | Memory | Boot time
-Domains               |   (MB) | (seconds)
-----------------------+--------+----------
-NetVM & FirewallVM    |  ~ 300 |   ~8.5s
-split GPG             |  ≥ 200 |   ~8.5s
-trusted PDF converter |  ~ 280 |     TBC
-```
-
-Nonetheless, there are huge advantages in using traditional OS. Being able to leverage what's already out there (e.g. Firefox, MS Word, network/graphic drivers) without any effort certainly has something to do with the success of such an _ambitious project_. As ITL summarizes it: everything just works. Building an OS which requires each and every component to be rewritten (like traditional micro-kernels) is a show stopper if your goal is to build something actually useful - not pure research.
+Nonetheless, there are huge advantages in using traditional OS. Being able to leverage what's already out there (e.g. Firefox, MS Word, network/graphic drivers) without any effort certainly has something to do with the success of such an _ambitious project_. Building an OS which requires each and every component to be written (like traditional micro-kernels) is a show stopper if your goal is to build something actually useful - not pure research.
 
 <blockquote class="largeQuote">
 What if there was a middle ground between running a fat-OS and having to rewrite everything?
@@ -46,66 +33,64 @@ What if we could reuse quality code without the kitchen sink while reducing the 
 
 ### Enter the unikernel
 
-Unikernels are single address space systems which bundle up an application and a *selection* of system components relevant for a specific purpose into a single lightweight image that can run on an hypervisor or directly on hardware. They are so fit for purpose that they don't need a file system unless made necessary by the use-case (e.g. configurations, data sets) or a required driver.
+Unikernels are single address space systems which bundle up an application and a *selection* of system components relevant for a specific purpose into a single lightweight image that can run on an hypervisor or directly on hardware. To illustrate how different they are from traditional OS, just consider they don't even need a file system unless made necessary by the use-case.
 
-Unikernels can enhance Qubes in many ways. They're a perfect fit for domains which doesn't require direct user interactions such as serviceVMs used in-line/pipe-like use cases.
+Fit-for-purpose is the word and as such, unikernels consume a lot less memory and boot in a split second, 10MB and ~150ms respectively is quite standard. This is huge and opens many doors.
 
-![monolithic kernel v unikernel](/img/posts/mono-v-uni.png)
+#### What's in it for Qubes?
 
-Here are some advantages I could come up with. I'm sure there are many more.
+##### Enhance the user experience
 
-#### Ease/encourage the use of concurrent security domains
+There's great potential to reduce the management of VMs (e.g. reduce the need to stop some VMs to free memory) and seamless boot time could open up new opportunities.
 
-1. There's a great potential to reduce the management of VMs, e.g. reduce the need to stop some VMs to free memory;
-1. Enhance the user experience and possibly create new patterns with almost seamless boot time of some serviceVMs.
+##### Increase security
 
-#### Increase security
+**The potential to leverage more compartmentalization**  
+  If we can fit more domains in the same amount of memory we're increasing our ability to run more concurrent domains. This has direct impact on our ability to segregate more components without affecting the UX. As an example, if there was a benefit to run two firewallVM, we might not be inclined to do so by default if it would consume ~600MB (2x ~300MB) while it would be painless using unikernels which take a fraction of memory.
 
-1. Potential to leverage more compartmentalization;
-  - The first two benefits could lead us to enforce the usage of [trusted converters](http://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html), e.g. from untrusted to trusted domains;
-  - Encourage more network segmentation: run more _lean and slim_ FirewallVM, ProxyVM, TorVM, NetVM, etc.
-     - **Bonus point!** We can mitigate a hypothetical chained TCP/IP stack exploit ([#806](https://github.com/QubesOS/qubes-issues/issues/806)) by making use of a different TCP/IP stack codebase. This reduces the chance for a single zero-day to cascade from the NetVM to FirewallVM to any AppVM (inbound) and from an untrustedVM to the FirewallVM and back to any AppVM (local). More details in the next [blog post](<<<<<<<<<<<<).
-  - Encourage more device domains;
-     - Hardware can be dedicated via PCI passthrough and handled by a fit-for-purpose unikernel (and safely isolated with IOMMU). See this [list of rump components](/misc/rump-make_describe-2015-10.txt), e.g. BlueTooth, audio, SMB, USB.
+  - More network segmentation: run more _lean and slim_ FirewallVM, ProxyVM, TorVM, NetVM.
+    - **Bonus point!** We can mitigate a hypothetical chained TCP/IP stack exploit ([#806](https://github.com/QubesOS/qubes-issues/issues/806)) by making use of a different TCP/IP stack codebase. This reduces the chance for a single zero-day to cascade from the NetVM to FirewallVM to any network-enabled AppVM (inbound) and from an untrustedVM to the FirewallVM and back to any network-enabled AppVM (local). More details in the [next blog post](<<<<<<<<<<<<).
+  - Lead to the enforcement of [trusted converters](http://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html).
+  - More device domains: USB, BlueTooth, audio, hard drive/file system.
 
-2. The approach values minimalism over _featurism_.
-  - This mainly translate in making exploitation harder (but really nothing to get too excited about) and probably less management: not much to play with, e.g. there's no shell; not much to gain persistence with, e.g. mostly read-only.
+**The approach values minimalism over _featurism_**  
+  Obviously, this is always a good thing for security and mainly translates into making exploitation harder (but really nothing to get too excited about) and less management: not much to play with, e.g. there's no shell; not much to gain persistence with, e.g. mostly read-only.
 
 ### Rumprun unikernel
-Most unikernels run single language such as Erlang, Haskell or OCaml and implement/maintain their own set of system components: drivers, protocols such as TLS, etc. While such approach can be useful in special case, what Qubes is really looking for is to reuse exciting/maintained code.
+Most unikernels run single language such as Erlang, Haskell or OCaml and implement/maintain their own set of system components: drivers, protocols such as TLS, etc. While such approach can be useful in special use-cases, what Qubes is looking for is to reuse exciting/maintained code (apps and drivers).
 
-The [Rumprun unikernel](http://repo.rumpkernel.org/rumprun) from the [Rump kernel](http://rumpkernel.org) project does exactly this. It allows the use of unmodified [NetBSD's](https://netbsd.org) components of your choice and unmodified, real world software (POSIX). I won't go into the details of how it work and came to be - a truly [fascinating story](https://blog.xenproject.org/2015/08/06/on-rump-kernels-and-the-rumprun-unikernel/) - but to motivate your curiosity, here's a ten thousand feet diagram:
+The [Rumprun unikernel](http://repo.rumpkernel.org/rumprun) from the [Rump kernel](http://rumpkernel.org) project does exactly this. It allows the use of unmodified [NetBSD's](https://netbsd.org) [components](/misc/rump-make_describe-2015-10.txt) of your choice and unmodified, real world software (POSIX). I won't go into the details of how it work and came to be - a truly [fascinating story](https://blog.xenproject.org/2015/08/06/on-rump-kernels-and-the-rumprun-unikernel/) - but to motivate your curiosity, here's a ten thousand feet diagram:
 
 ![anykernel and rumpkernel to unikernel](/img/posts/anyunirumpkernel.png)
 <small>
 source: [http://wiki.rumpkernel.org/Repo](http://wiki.rumpkernel.org/Repo)
 </small>
 
-The end result is simply amazing. It provides a toolchain that easily makes an application run on bare metal x86, x86_64, ARM, KVM and - what we need - Xen. A few interesting examples from the [package repository](http://repo.rumpkernel.org/rumprun-packages) are nginx, redis, mysql, nodejs, rust, python and even roundcube's webmail.
+The end result is simply amazing. It provides a toolchain that easily makes an application run on bare metal x86, x86_64, ARM, KVM and Xen. A few interesting examples from the [package repository](http://repo.rumpkernel.org/rumprun-packages) are nginx, redis, mysql, nodejs, rust, python and even roundcube's webmail. And on the other end, it provides a long list of [systems components](/misc/rump-make_describe-2015-10.txt) such as USB, BlueTooth, hard drive/file system and audio. If you want to know everything there is to know about it, read the [publications](http://wiki.rumpkernel.org/Info%3A-Publications-and-Talks) and [Antti Kantee's book](http://repo.rumpkernel.org/book).
 
-If you want to know everything there is to know about it, read the [publications](http://wiki.rumpkernel.org/Info%3A-Publications-and-Talks) and [Antti Kantee's book](http://repo.rumpkernel.org/book).
+In essence, Rumprun foster Qubes' components deaggregation and compartmentalization efforts by mitigating some problems of running a monolithic kernel while still leveraging quality and maintained system components. In other words, it supports its pseudo-micro-kernel-using-monolithic-kernel-components approach: use common drivers and run real-world applications.
 
-#### Current limitations of Rumprun unikernels
+#### Current limitations
 
-We can't expect unikernels to fit for all use-cases and they certainly aren't expected to replace general-purpose domains such as *work*, *personal* and *untrusted*. Also they come with some technical limitations:
+Rumprun comes with its own technical limitations:
 
 - The application must support cross-compilation. No big deal;
 - Single process. Obviously, fork() and execve() won't work;
 - No virtual memory but again, it's presumed;
 - For now, don't expect to run a GUI. Still, based on Antti's comment, it would be feasible;
-- It doesn't support vchan, for now...
+- It doesn't support vchan, for now but to fit with Qubes' communication model ([qrexec](https://www.qubes-os.org/en/doc/qrexec/)) and becomes a first class citizen, vchan is a must. The discussions I had with the Rumpkernel team (mainly Antti) says it should be pretty easy to implement.
 
-To fit with Qubes' communication model ([qrexec](https://www.qubes-os.org/en/doc/qrexec/)) and becomes a first class citizen, vchan is a must. The discussions I had with the Rumpkernel team (mainly Antti) says it should be pretty easy to implement.
+In summary, we can't expect unikernels to fit for all use-cases and they certainly aren't expected to replace the general-purpose domains such as *work*, *personal* and *untrusted*. However, currently they're a perfect fit for domains which doesn't require direct user interactions such as serviceVMs used in-line/pipe-like use cases.
 
 #### Impacts on Qubes
 
-Currently, to boot a Rumprun unikernel image we need to execute a few *special* steps: start paused, inject some config in XenStore, unpause. Fortunately, this part is managed by a very simple [shell script](https://github.com/rumpkernel/rumprun/blob/master/app-tools/rumprun) that can easily be audited and integrated to Qubes' toolstack. Even better, when challenged with this problematic, the Rumpkernel team quickly sparked a discussion to remove it altogether and try to rely solely on the hypervisor’s toolstack - like any other VM.
+Currently, to boot a Rumprun unikernel image we need to execute a few *special* steps: start paused, inject some config in XenStore, unpause. Fortunately, this part is managed by a very simple [shell script](https://github.com/rumpkernel/rumprun/blob/master/app-tools/rumprun) that can easily be audited and integrated to Qubes' toolstack. Even better, when challenged with this already known problematic, the Rumpkernel team quickly sparked a discussion to remove it altogether and try to rely solely on the hypervisor’s toolstack - like any other VM.
 
-On the build side, it requires the integration of Rumprun's repository which includes NetBSD's source (~350MB that could be striped down) and implies trusting them for whatever domains we're building. This doesn't sound unrealistic.
+On the build side, it requires the integration of Rumprun's repository which includes NetBSD's source (~350MB which can be trimmed down) and implies trusting them for whatever domains we're building. This doesn't sound unrealistic.
 
 ### Conclusion
 
-In this post we explored the substantial and concrete value of integrating unikernels to Qubes. We also went over the challenges and demonstrated how Rumprun seems to be a natural fit.
+In this post we explored the substantial and concrete value of integrating unikernels or more precisely Rumprun to Qubes. We also went over the challenges and demonstrated why Rumprun seems to be a natural fit.
 
 Now, I'm looking for constructive feedback from Qubes' community and will try to answer a few questions: What exactly would need to be modified on Qubes' side, what's the effort, what's the best course of action and ultimately, is it viable in practice?
 
