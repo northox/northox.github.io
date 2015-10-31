@@ -4,7 +4,7 @@ title: About
 ---
 #### About me
 
-My name is Danny Fullerton. I live in the French part of North America (Montréal, Québec, Canada) and a proud [Scottish descendant](https://www.houseofnames.com/fullerton-family-crest). I'm Cofounder and Defensive Security Researcher at [Mantor Organization](https://mantor.org) and work full time as an Enterprise Security Architect for one of the biggest railroad in North America.
+My name is Danny [Fullerton](https://www.houseofnames.com/fullerton-family-crest). I live in the French part of North America (Montréal, Québec, Canada). I'm Cofounder and Defensive Security Researcher at [Mantor Organization](https://mantor.org) and work full time as an Enterprise Security Architect for one of the biggest railroad in North America.
 
 Oh, as you might have seen, I'm also a hobbyist photographer... on a budget. [See below](#pics).
 
@@ -21,7 +21,7 @@ I use a lot of Open Source software/hardware and give back by getting involved i
 
 #### Pictures
 
-The pictures in this blog are scenes from my trips and my neighborhood. I'm still using a simple smartphone.
+The pictures in this blog are scenes from my trips and my neighborhood. I simply an amateur and still using a simple smartphone.
 
 Why do I put some total random pictures in a security blog? Simply because I feel like it. This is one of the very few activities I enjoy aside computer stuff and using my shots as part of my work makes it feel a little more personal and human.
 
