@@ -1,4 +1,4 @@
-# northox.github.io
+# danny.mantor.org
 My personal blog about defensive computer security.
 
 ## License
