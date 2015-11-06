@@ -32,7 +32,7 @@ If you're interested, you can find most of my pictures on [flickr](https://www.f
 
 <h4 id="contact">Contact</h4>
 
-You can reach me by email at this address: **danny at mantor dot org**. My email PGP key fingerprint is as follow and can be validated with my master key as described [below](#validid).
+You can reach me by email at this address: **danny at mantor dot org**. My email PGP key fingerprint is as follow and can be validated with my master key as described [below](#validid). Otherwise, I can be found on [twitter](https://twitter.com/dfullerto) and sometimes on IRC/freenode under the alias [northox](https://mantor.org/~northox).
 
 > [8A70 E815 92F5 262A EEB1 7BF1 1055 33C9 CF49 C615](/keys/danny/)
 
