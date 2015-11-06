@@ -42,7 +42,7 @@ All my keys are signed by my "Danny Fullerton Master Signing Key". This key as a
 
 > [C6FC 629C C059 0C23 A3EA 424E B051 4D88 E186 890E](/keys/master.danny/)
 
-Make sure you use different sources to confirm the fingerprint, e.g. <a href="">twitter</a>, our <a href="">website</a>, in person (no it's not awkward, just inconvenient... that's what the web-of-trust is all about).
+Make sure you use different sources to confirm the fingerprint, e.g. [twitter](https://twitter.com/dfullerto/status/662502355569647617), in person (no it's not awkward, just inconvenient... that's what the web-of-trust is all about).
 
 #### Disclaimer
 
