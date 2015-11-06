@@ -18,10 +18,10 @@ syntaxHighlighter: no
 
 _This post is the first of a series and assumes you have some basic understanding of [Qubes](https://qubes-os.org)' reason being, structure and terminology._
 
-For some time, I've been asking myself how to enhance Qubes. Working with different security domains implemented as VMs running traditional Operating System with monolithic kernels comes at a price. The user experience drawbacks of
+For some time, I've been asking myself how to enhance Qubes. Working with different security domains implemented as VMs running traditional Operating System with monolithic kernels comes at a price:
 
-- Managing memory-hungry concurrent VMs (&ge; 300MB), e.g. freeing some memory by stopping a VM to start another;
-- Waiting for a VM to boot (~8.5s) to launch an app and sometimes only to execute something which takes a fraction of this time.
+- The user experience drawbacks of managing memory-hungry concurrent VMs (&ge; 300MB), e.g. freeing some memory by stopping a VM to start another, or waiting for a VM to boot (~8.5s) to launch an app and sometimes only to execute something which takes a fraction of this time.
+- From a security perspective, memory consumption limits our ability to introduce more domain segmentation.
 
 Nonetheless, there are huge advantages in using traditional OS. Being able to leverage what's already out there (e.g. Firefox, MS Word, network/graphic drivers) without any effort certainly has something to do with the success of such an _ambitious project_. Building an OS which requires each and every component to be written (like traditional micro-kernels) is a show stopper if your goal is to build something actually useful - not pure research.
 
