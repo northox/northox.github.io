@@ -85,7 +85,7 @@ Rumprun comes with its own technical limitations:
 - Single process. Obviously, fork() and execve() won't work;
 - No virtual memory but again, it's presumed;
 - For now, don't expect to run a GUI. Still, based on Antti's comment, it would be feasible;
-- It doesn't support vchan, for now but to fit with Qubes' communication model ([qrexec](https://www.qubes-os.org/en/doc/qrexec/)) and becomes a first class citizen, vchan is a must. The discussions I had with the Rumpkernel team (mainly Antti) suggest it would be pretty easy to implement.
+- It doesn't support vchan but to fit with Qubes' communication model ([qrexec](https://www.qubes-os.org/en/doc/qrexec/)) and becomes a first class citizen, it's a must. The discussions I had with the Rumpkernel team (mainly Antti) suggest it would be pretty easy to implement.
 
 In summary, we can't expect unikernels to fit for all use-cases and they certainly aren't expected to replace the general-purpose domains such as *work*, *personal* and *untrusted*. However, currently they're a perfect fit for domains which doesn't require direct user interactions such as serviceVMs used in in-line/pipe-like use cases. In the future, it might be great for single-purpose domains like [split GPG](https://www.qubes-os.org/doc/split-gpg/) or email-dedicated domains.
 
