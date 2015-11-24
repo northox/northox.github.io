@@ -13,7 +13,7 @@ locale:              en_US
 name:		     'bored with offense'
 title:               'bored with offense'
 description:         'A blog about defensive computer security. '
-url:                 danny.mantor.org
+url:                 'https://danny.mantor.org'
 rss:                 feed.xml
 baseurl:             '/'
 baseurl_posts_img:   'img/posts/'
