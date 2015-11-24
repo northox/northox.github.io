@@ -15,7 +15,7 @@ title:               'bored with offense'
 description:         'A blog about defensive computer security. '
 url:                 'https://danny.mantor.org'
 rss:                 feed.xml
-baseurl:             '/'
+baseurl:             ''
 baseurl_posts_img:   'img/posts/'
 baseurl_featured_img: 'img/hero/'
 baseurl_javascripts: 'js/'
