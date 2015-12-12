@@ -49,7 +49,7 @@ There's great potential to reduce the management of VMs (e.g. reduce the need to
   If we can fit more domains in the same amount of memory we're increasing our ability to run more concurrent domains. This has direct impact on our ability to segregate more components without affecting the UX. As an example, if there was a benefit to run two firewallVM, we might not be inclined to do so by default if it would consume ~600MB (2x ~300MB) while it would be painless using unikernels which take a fraction of this memory.
 
   - More network segmentation: run more _lean and slim_ FirewallVM, ProxyVM, VpnVM TorVM, NetVM.
-    - **Bonus point!** We can mitigate a hypothetical chained TCP/IP stack exploit ([#806](https://github.com/QubesOS/qubes-issues/issues/806)) by making use of a different TCP/IP stack codebase. This reduces the chance for a single zero-day to cascade from the NetVM to FirewallVM to any network-enabled AppVM (inbound) and from an untrustedVM to the FirewallVM and back to any network-enabled AppVM (local). More details in the [next blog post](<<<<<<<<<<<<).
+    - **Bonus point!** We can mitigate a hypothetical chained TCP/IP stack exploit ([#806](https://github.com/QubesOS/qubes-issues/issues/806)) by making use of a different codebase. This reduces the chance for a single zero-day to cascade from the NetVM to FirewallVM to any network-enabled AppVM (inbound) and from an untrustedVM to the FirewallVM and back to any network-enabled AppVM (local). More details in the [next blog post](/immutable-tor-firewall-vm/).
   - Lead to the enforcement of [trusted converters](http://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html).
   - More device domains: USB, BlueTooth, audio, hard drive/file system.
 
