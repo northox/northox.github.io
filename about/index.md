@@ -28,7 +28,7 @@ Why do I put some total random pictures in a security blog? Simply because I fee
 
 I've developed this new interest while being inspired by a [seasoned developer](https://github.com/jmettraux) and friend on the other side of the globe (Japan) named [John Mettraux](https://www.flickr.com/photos/jmettraux/) and a former IBM co-worker and friend, [Denis Dumouchel](http://dumouchel.ca/photos/).
 
-If you're interested, you can find most of my pictures on [flickr](https://www.flickr.com/photos/137239922@N05/).
+If you're interested, you can find most of my pictures on [flickr](https://www.flickr.com/photos/dannyfullerton/).
 
 <h4 id="contact">Contact</h4>
 
