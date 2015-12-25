@@ -202,9 +202,9 @@
 .desaturate {
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-  -moz-filter: contrast(1.5) grayscale(1);
-  -webkit-filter: contrast(1.5) grayscale(1);
-  filter: contrast(1.5) grayscale(1);
+  -moz-filter: contrast(1.5) grayscale(.8);
+  -webkit-filter: contrast(1.5) grayscale(.8);
+  filter: contrast(1.5) grayscale(.8);
 }
 
 .block:hover .desaturate {
