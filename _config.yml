@@ -1,6 +1,6 @@
 
 # Syntax highlighting
-markdown:            redcarpet
+markdown:            kramdown
 highlighter:         rouge
 
 # Permalinks
@@ -9,7 +9,7 @@ permalink:           /:title
 # Setup
 timezone:            America/New_York
 locale:              en_US
-name:		     'bored with offense'
+name:		             'bored with offense'
 title:               'bored with offense'
 description:         'A blog about defensive computer security. '
 url:                 'https://danny.mantor.org'
