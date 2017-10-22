@@ -31,7 +31,7 @@ author:
 
 # Server
 destination:      	 ./_site
-exclude:          	 [".gitignore", "CNAME", "LICENSE.md", "README.md"]
+exclude:          	 [".gitignore", "CNAME", "LICENSE.md", "README.md“, “vendor/bundle”]
 port:             	 9001
 
 sass:
