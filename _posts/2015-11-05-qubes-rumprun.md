@@ -6,7 +6,6 @@ categories: "low-level"
 tags:
   - qubesos
   - unikernel
-  - rumprun
 image:
   feature: "birds-porto.jpeg"
   position: top left
