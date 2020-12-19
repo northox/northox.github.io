@@ -32,13 +32,6 @@
 @import "utilities";
 @import "responsive-utilities";
 
-
-code,
-kbd,
-pre,
-samp {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-}
 code {
   padding: 2px 4px;
   font-size: 90%;
@@ -87,4 +80,3 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-
