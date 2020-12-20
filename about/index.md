@@ -5,7 +5,7 @@ title: About
 
 #### About me
 
-My name is Danny [Fullerton](https://www.houseofnames.com/fullerton-family-crest) aka [northox](https://mantor.org/~northox). I live in the French part of North America (Montréal, Québec, Canada). I'm Cofounder and Defensive Security Researcher at [Mantor Organization](https://mantor.org) and work full time as CISO.
+My name is Danny [Fullerton](https://www.houseofnames.com/fullerton-family-crest) aka [northox](https://mantor.org/~northox). I live in the French part of North America (Montréal, Québec, Canada). I'm Cofounder at [Mantor Organization](https://mantor.org) and work full time as a CISO.
 
 Oh, as you might have seen, I'm also a hobbyist photographer... on a budget. [See below](#pics).
 
